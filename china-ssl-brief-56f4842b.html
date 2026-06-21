@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主题空间 · leyu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e2a3a;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 开场短句 hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.4rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero .opening {
+            font-size: 1.1rem;
+            letter-spacing: 0.2px;
+            color: #3b4c62;
+            max-width: 680px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .hero .opening strong {
+            font-weight: 550;
+            color: #0f1f30;
+        }
+
+        /* 承接段落卡片 */
+        .narrative-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            margin-bottom: 2rem;
+        }
+
+        .narrative-card p {
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            color: #1f2c3d;
+        }
+
+        .narrative-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .narrative-card .inset-link {
+            font-weight: 500;
+            color: #2b4b6f;
+            text-decoration: none;
+            border-bottom: 1px solid #b8c9db;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .narrative-card .inset-link:hover {
+            border-bottom-color: #2b4b6f;
+            color: #183451;
+        }
+
+        /* 特点列表 —— 卡片式网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9ecf0;
+            transition: box-shadow 0.15s, transform 0.1s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+            transform: translateY(-1px);
+        }
+
+        .feature-item .num {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #8b9aaa;
+            background: #f0f3f7;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.05rem;
+            font-weight: 550;
+            margin-bottom: 0.3rem;
+            color: #1d2b3c;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #3c4d62;
+            line-height: 1.5;
+        }
+
+        /* 温和结尾 / 附注 */
+        .closing {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9edf2;
+            text-align: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .closing p {
+            font-size: 0.95rem;
+            color: #2f4056;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .closing .subtle-ref {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: #68788d;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .faq-mini span {
+            background: #f0f4f9;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #2d405a;
+            border: 1px solid #dfe6ed;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dbdfe5;
+            margin: 1.8rem 0 1.2rem;
+            opacity: 0.5;
+        }
+
+        .legal-note {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #7a8a9b;
+            letter-spacing: 0.2px;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+            .narrative-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-grid {
+                gap: 1rem;
+            }
+            .feature-item {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 hero -->
+    <div class="hero">
+        <div class="opening">
+            <strong>leyu</strong> 所指向的，并非只是一个名称。<br>
+            它是一个持续迭代的内容节点，信息、结构与使用场景在其周围自然生长。
+        </div>
+    </div>
+
+    <!-- 承接段落 -->
+    <div class="narrative-card">
+        <p>
+            在数字世界的版图中，总有一些标识承载着具体而微的意图。<a href="https://china-ssl-leyu.com" class="inset-link">leyu</a> 即是这样一个锚点：它成为一组主题资源的索引，而非单一入口。围绕它可以梳理出若干层次——从基础框架到应用视角，从静态文档到交互逻辑，不同需求可以在这里找到对应的切片。
+        </p>
+        <p>
+            这个页面尝试将背后的信息密度做一次折叠展示，不追求面面俱到，但求每个段落都能反映真实的功能侧面。你可以将以下特点列表视为一份轻量级摘要，用来快速判断 <a href="https://china-ssl-leyu.com" class="inset-link">leyu</a> 所关联的范围与调性。
+        </p>
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span class="num">01</span>
+            <h3>结构优先</h3>
+            <p>内容组织围绕模块化展开，每个分区都有明确的上下文边界，减少信息干扰，便于局部引用与复用。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">02</span>
+            <h3>叙事中性</h3>
+            <p>表述保持克制，不渲染情绪，不堆砌溢美之词。用平实的语句记录功能属性与使用场景。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">03</span>
+            <h3>索引式架构</h3>
+            <p>不同主题之间通过清晰链接串联，但不强制线性阅读。用户可根据自身节奏选择切入深度。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">04</span>
+            <h3>持续积累</h3>
+            <p>内容并非一次性填充，而是根据实际反馈与需求逐步补充，每一轮更新都保持风格一致。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">05</span>
+            <h3>边界可见</h3>
+            <p>每部分都标明适用范围与假设条件，不模糊界限，让使用者清楚哪些在范围内、哪些尚未覆盖。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">06</span>
+            <h3>轻量呈现</h3>
+            <p>无论视觉还是信息密度，都避免过度设计。卡片、间距、字体均以可读性为先，突出内容本身。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ 摘要 -->
+    <div class="closing">
+        <p>
+            如果你恰好对上述某个侧面有所共鸣，不妨将 <a href="https://china-ssl-leyu.com" class="inset-link">leyu</a> 放入自己的浏览索引。它不承诺宏大叙事，只提供一段安静且结构清晰的阅读起点。
+        </p>
+        <div class="faq-mini">
+            <span>信息持续更新</span>
+            <span>模块可独立引用</span>
+            <span>无诱导式引导</span>
+            <span>适合快速概览</span>
+        </div>
+        <div class="subtle-ref">— 一份以内容为中心的主题索引 —</div>
+    </div>
+
+    <hr>
+
+    <div class="legal-note">
+        <span>页面内容仅为信息展示，不构成任何形式的承诺或指引。</span>
+    </div>
+
+</div>
+</body>
+</html>
